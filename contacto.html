@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mr. Robot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="imagenes/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html"><img src="imagenes/fsociety.png" alt="fsociety Logo" class="logo-navbar"></a>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="personajes.html">Personajes</a></li>
+            <li><a href="temporadas.html">Temporadas</a></li>
+            <li><a href="curiosidades.html">Curiosidades</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h2 class="glitch" data-text="CONTACTO" style="text-align: center; padding-top: 2rem; padding-bottom: 2rem;">CONTACTO</h2>
+    </header>
+    <main class="container">
+        <div class="contact-layout">
+            <form action="#" method="POST" class="contact-form">
+                <h2 class="form-title">DEJA TU MENSAJE</h2>
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Número de Teléfono:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+
+            <div class="map-container">
+                <h3 class="map-title">ENCUÉNTRANOS (SI PUEDES)...</h3>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1756945803255!6m8!1m7!1sivrS0uuGlD8oEhSWevE9gA!2m2!1d40.57480202514964!2d-73.98016611647603!3f212.78907205303184!4f-31.2031.203530807435975!5f0.4000000000000002" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="map-overlay">
+                        <p>ERROR 404<br>NOT FOUND</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="btn-volver">Volver al Inicio</a>
+        </div>
+    </main>
+        
+</body>
+</html>

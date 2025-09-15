@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Robot - Fan Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="imagenes/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html"><img src="imagenes/fsociety.png" alt="fsociety Logo" class="logo-navbar"></a>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="personajes.html">Personajes</a></li>
+            <li><a href="temporadas.html">Temporadas</a></li>
+            <li><a href="curiosidades.html">Curiosidades</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="binary-code"></div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="MR. ROBOT"><img src="imagenes/logo.png" height=150px width=auto alt="Mr. Robot"></h1>
+            <p class="line-1 anim-typewriter">Hello, friend.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="sinopsis">
+            <h2 class="glitch" data-text="SINOPSIS">SINOPSIS</h2>
+            <p>Mr. Robot sigue a Elliot Alderson, un joven ingeniero de ciberseguridad de día y un hacker justiciero de noche. Elliot se encuentra en una encrucijada cuando el misterioso líder de un grupo de hackers clandestinos, conocido como "fsociety", lo recluta para destruir la misma corporación que le pagan por proteger. Atormentado por sus demonios personales y un trastorno de ansiedad social, Elliot lucha por discernir lo que es real mientras intenta liderar una revolución digital.</p>
+        </section>
+
+        <section id="galeria">
+            <h2 class="glitch" data-text="GALERÍA">GALERÍA</h2>
+            <div class="galeria-grid">
+                <img src="imagenes/foto1.webp" alt="Imagen de la galería 1" class="galeria-item">
+                <img src="imagenes/foto2.webp" alt="Imagen de la galería 2" class="galeria-item">
+                <img src="imagenes/foto3.webp" alt="Imagen de la galería 3" class="galeria-item">
+                <img src="imagenes/foto4.webp" alt="Imagen de la galería 4" class="galeria-item">
+                <img src="imagenes/foto5.jpeg" alt="Imagen de la galería 5" class="galeria-item">
+                <img src="imagenes/foto6.jpeg" alt="Imagen de la galería 6" class="galeria-item">
+                <img src="imagenes/foto7.webp" alt="Imagen de la galería 7" class="galeria-item">
+                <img src="imagenes/foto8.webp" alt="Imagen de la galería 8" class="galeria-item">
+                <img src="imagenes/foto9.webp" alt="Imagen de la galería 9" class="galeria-item">
+                <img src="imagenes/foto10.webp" alt="Imagen de la galería 7" class="galeria-item">
+                <img src="imagenes/foto11.jpg" alt="Imagen de la galería 8" class="galeria-item">
+                <img src="imagenes/foto12.jpeg" alt="Imagen de la galería 9" class="galeria-item">
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+            <div id="lightbox-caption"></div>
+        </div>
+
+        <section id="fsociety">
+            <h2 class="glitch" data-text="FSOCIETY">FSOCIETY</h2>
+            <p>"Somos fsociety. Somos la única cosa real. Somos todo o nada." Fsociety es el catalizador de la revolución, un grupo de hackers con el objetivo de derribar a E Corp, el conglomerado multinacional que, en su opinión, controla el mundo. Su símbolo es la máscara inspirada en el Monopolio y su lema es un llamado a la acción contra la tiranía corporativa.</p>
+             <div id="fsociety-glitch-container" class="glitch-image-wrapper" style="max-width: 150px; margin: 2rem auto;">
+                <img src="imagenes/fsociety.png" alt="fsociety Mask" style="width: 100%; display: block;">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>WE ARE FSOCIETY - 2025</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -88,38 +88,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Episode List Toggles (Temporadas Page)
-    console.log('Initializing episode toggles...');
     const episodeToggles = document.querySelectorAll('.episode-toggle');
-    console.log('Found episode toggles:', episodeToggles.length);
 
     episodeToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
-            console.log('Toggle clicked!');
-            // Permitir que el toggle funcione si el siguiente elemento es un h3 o similar
-            let episodeList = toggle.nextElementSibling;
-            // Si el siguiente no es la lista, buscar el siguiente .episode-list dentro del mismo contenedor
-            if (!episodeList || !episodeList.classList.contains('episode-list')) {
-                episodeList = toggle.parentElement.querySelector('.episode-list');
-            }
-            console.log('Episode list element:', episodeList);
-            if (episodeList && episodeList.classList.contains('episode-list')) {
-                toggle.classList.toggle('active');
-                const icon = toggle.querySelector('.toggle-icon');
+            const episodeList = toggle.parentElement.querySelector('.episode-list');
+            if (!episodeList) return;
 
-                // Comprueba si el maxHeight está establecido para decidir si abrir o cerrar
-                if (episodeList.style.maxHeight) {
-                    // Si está abierto, lo cerramos
-                    episodeList.style.maxHeight = null;
-                    if (icon) icon.textContent = '+';
-                    episodeList.classList.remove('show');
-                } else {
-                    // Si está cerrado, lo abrimos calculando su altura real
-                    episodeList.style.maxHeight = episodeList.scrollHeight + "px";
-                    if (icon) icon.textContent = '-';
-                    episodeList.classList.add('show');
-                }
+            toggle.classList.toggle('active');
+            episodeList.classList.toggle('show');
+
+            const icon = toggle.querySelector('.toggle-icon');
+            if (toggle.classList.contains('active')) {
+                if (icon) icon.textContent = '-';
             } else {
-                console.log('Condition NOT met: episodeList is NOT valid or missing class.', episodeList);
+                if (icon) icon.textContent = '+';
             }
         });
     });

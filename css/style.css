@@ -685,30 +685,3 @@ footer {
     max-height: 500px;
     opacity: 1;
 }
-
-.episode-toggle {
-    cursor: pointer;
-    background: #222;
-    color: var(--primary-color);
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    margin: 1rem 0 0.5rem 0;
-    display: inline-block;
-    user-select: none;
-    transition: background 0.2s;
-}
-
-.episode-toggle.active {
-    background: #440000;
-}
-
-.toggle-icon {
-    font-weight: bold;
-    margin-left: 0.5rem;
-    transition: transform 0.3s;
-}
-
-.episode-toggle.active .toggle-icon {
-    transform: rotate(45deg);
-    /* Cambia + por x visualmente */
-}

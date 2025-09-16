@@ -699,6 +699,12 @@ footer {
     align-items: center;
     text-align: center;
     z-index: 1;
+    pointer-events: none;
+}
+
+.map-overlay h2,
+.map-overlay p {
+    pointer-events: auto;
 }
 
 .map-overlay h2 {

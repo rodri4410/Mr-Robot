@@ -1,29 +1,55 @@
-/* --- NAVBAR RESPONSIVE --- */
+/* --- VARIABLES GLOBALES DE ESTILO --- */
+:root {
+    --primary-color: #ff0000; /* Rojo característico de Mr. Robot */
+    --background-color: #0a0a0a; /* Fondo oscuro principal */
+    --text-color: #e0e0e0;      /* Color de texto principal, un gris claro */
+    --font-main: 'Anonymous Pro', monospace; /* Fuente principal para el look de terminal */
+}
+
+/* --- RESETEO Y ESTILOS GENERALES DEL BODY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y borde no afecten el tamaño final del elemento */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6; /* Espaciado de línea para mejorar la legibilidad */
+    padding-top: 70px; /* Evita que el contenido se oculte detrás de la barra de navegación fija */
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 2rem;
-    position: fixed;
+    position: fixed; /* Fija la barra en la parte superior */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(10px);
+    z-index: 1000; /* Se asegura de que esté por encima de otros elementos */
+    background: rgba(10, 10, 10, 0.75); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2); /* Línea roja sutil en la parte inferior */
     transition: background 0.3s ease;
 }
+
 .nav-logo img {
-    height: 48px;
+    height: 48px; /* Altura del logo */
     width: auto;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2rem; /* Espacio entre los enlaces */
 }
+
 .nav-links li a {
     position: relative;
     color: var(--text-color);
@@ -31,39 +57,44 @@
     font-weight: 700;
     letter-spacing: 1px;
     transition: color 0.3s ease;
-    padding-bottom: 5px; /* Add some space for the underline */
+    padding-bottom: 5px; /* Espacio para la línea animada inferior */
 }
 
+/* Efecto de subrayado animado para los enlaces de navegación */
 .nav-links li a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 0;
+    width: 0; /* Inicia sin ancho */
     height: 2px;
     background-color: var(--primary-color);
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out; /* Transición para el ancho */
 }
 
 .nav-links li a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Cambia el color del texto al pasar el mouse */
 }
 
 .nav-links li a:hover::after {
-    width: 100%;
+    width: 100%; /* Expande el ancho del subrayado al 100% */
 }
+
+/* --- MENÚ HAMBURGUESA PARA MÓVILES --- */
 .nav-toggle {
-    display: none;
+    display: none; /* Oculto por defecto en pantallas grandes */
 }
+
 .nav-toggle-label {
-    display: none;
+    display: none; /* Oculto por defecto */
     flex-direction: column;
     cursor: pointer;
     width: 32px;
     height: 32px;
     justify-content: center;
 }
+
 .nav-toggle-label span,
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
@@ -75,17 +106,22 @@
     position: relative;
     transition: all 0.3s;
 }
+
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
     content: '';
     position: absolute;
 }
+
 .nav-toggle-label span::before {
     top: -10px;
 }
+
 .nav-toggle-label span::after {
     top: 10px;
 }
+
+/* Media query para mostrar el menú hamburguesa en pantallas pequeñas */
 @media (max-width: 900px) {
     .nav-links {
         position: absolute;
@@ -99,38 +135,20 @@
         align-items: center;
         gap: 1.5rem;
         padding: 1.5rem 0;
-        display: none;
+        display: none; /* Oculto hasta que se active */
         border-bottom: 1px solid rgba(255, 0, 0, 0.2);
     }
+
     .nav-toggle:checked + .nav-toggle-label + .nav-links {
-        display: flex;
+        display: flex; /* Muestra el menú cuando el checkbox está marcado */
     }
+
     .nav-toggle-label {
-        display: flex;
+        display: flex; /* Muestra el ícono de hamburguesa */
     }
 }
-/* --- ESTILOS GLOBALES --- */
-:root {
-    --primary-color: #ff0000; /* Rojo Mr. Robot */
-    --background-color: #0a0a0a;
-    --text-color: #e0e0e0;
-    --font-main: 'Anonymous Pro', monospace;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: var(--font-main);
-    line-height: 1.6;
-    padding-top: 70px;
-}
-
+/* --- CONTENEDOR PRINCIPAL Y TÍTULOS --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -150,16 +168,16 @@ section {
     margin-bottom: 3rem;
 }
 
-/* --- EFECTO GLITCH --- */
+/* --- EFECTO DE TEXTO "GLITCH" --- */
 .glitch {
     position: relative;
     color: white;
     text-shadow: 
-        -1px -1px 0 var(--primary-color),
-        1px 1px 0 #00aaff;
+        -1px -1px 0 var(--primary-color), /* Sombra roja */
+        1px 1px 0 #00aaff; /* Sombra azul para el efecto 3D */
 }
 
-/* --- HEADER / HERO --- */
+/* --- SECCIÓN HERO (CABECERA PRINCIPAL) --- */
 .hero {
     position: relative;
     height: 60vh;
@@ -169,12 +187,12 @@ section {
     text-align: center;
     background: #111;
     border-bottom: 2px solid var(--primary-color);
-    overflow: hidden;
+    overflow: hidden; /* Oculta el contenido que se desborda */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Se asegura de que el contenido esté sobre el fondo binario */
 }
 
 .hero-content h1 {
@@ -187,10 +205,10 @@ section {
     color: white;
 }
 
-/* --- SECCIÓN PERSONAJES --- */
+/* --- GRID DE PERSONAJES --- */
 .personajes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño responsivo */
     gap: 1.5rem;
 }
 
@@ -202,14 +220,14 @@ section {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Sombra roja */
 }
 
 .card-img {
     width: 100%;
     height: 280px;
-    object-fit: cover; /* Esto asegura que la imagen cubra el espacio sin deformarse */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
     border-bottom: 2px solid var(--primary-color);
 }
 
@@ -230,7 +248,7 @@ footer {
     color: #777;
 }
 
-/* --- BOTÓN VOLVER --- */
+/* --- BOTÓN DE VOLVER --- */
 .btn-volver {
     display: inline-block;
     margin-top: 2rem;
@@ -244,10 +262,10 @@ footer {
 }
 
 .btn-volver:hover {
-    background-color: #cc0000;
+    background-color: #cc0000; /* Rojo más oscuro al pasar el mouse */
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* --- ESTILOS RESPONSIVOS ADICIONALES --- */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 3rem;
@@ -260,7 +278,7 @@ footer {
     }
 }
 
-/* --- NUEVO LOGO --- */
+/* --- LOGO EN LA BARRA DE NAVEGACIÓN --- */
 .logo-navbar {
     max-width: 60px;
     height: auto;
@@ -268,15 +286,10 @@ footer {
 }
 
 .logo-navbar:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño del logo */
 }
 
-/* --- PÁGINAS INTERNAS (Temporadas, Curiosidades) --- */
-.container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
+/* --- PÁGINAS INTERNAS (TEMPORADAS, CURIOSIDADES) --- */
 .temporada, .curiosidad-item {
     background-color: #1a1a1a;
     border-left: 4px solid var(--primary-color);
@@ -290,10 +303,6 @@ footer {
 }
 
 /* --- FORMULARIO DE CONTACTO --- */
-.contact-form-container {
-    display: block;
-}
-
 .contact-form {
     background: #1a1a1a;
     padding: 2.5rem;
@@ -369,22 +378,22 @@ footer {
 .map-container iframe {
     border: 2px solid #333;
     border-radius: 8px;
-    filter: grayscale(100%) contrast(1.2);
+    filter: grayscale(100%) contrast(1.2); /* Efecto blanco y negro */
     transition: filter 0.3s ease;
 }
 
 .map-container iframe:hover {
-    filter: grayscale(0%) contrast(1);
+    filter: grayscale(0%) contrast(1); /* Restaura el color al pasar el mouse */
 }
 
-/* --- SCANLINES Y ANIMACIÓN DE TEXTO --- */
+/* --- EFECTO SCANLINES (LÍNEAS DE TV ANTIGUA) --- */
 .scanlines {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    pointer-events: none; /* Permite hacer clic a través del elemento */
     background: repeating-linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0),
@@ -392,13 +401,14 @@ footer {
         rgba(255, 255, 255, 0.02) 3px,
         rgba(255, 255, 255, 0.02) 4px
     );
-    z-index: 2000;
+    z-index: 2000; /* Se asegura de que esté por encima de todo */
     opacity: 0.5;
 }
 
+/* --- ANIMACIÓN DE MÁQUINA DE ESCRIBIR --- */
 .anim-typewriter {
     display: inline-block;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    border-right: 2px solid rgba(255, 255, 255, 0.75); /* Cursor que parpadea */
     white-space: nowrap;
     overflow: hidden;
     animation: 
@@ -407,26 +417,26 @@ footer {
 }
 
 @keyframes typewriter {
-    from { width: 0; }
-    to { width: 14ch; } /* 14 characters in "Hello, friend." */
+    from { width: 0; } /* El texto empieza sin ancho */
+    to { width: 14ch; } /* Ancho final del texto ("Hello, friend.") */
 }
 
 @keyframes blinkTextCursor {
     from { border-right-color: rgba(255, 255, 255, 0.75); }
-    to { border-right-color: transparent; }
+    to { border-right-color: transparent; } /* Simula el parpadeo del cursor */
 }
 
-/* --- LAYOUT DE CONTACTO --- */
+/* --- DISEÑO DE LA PÁGINA DE CONTACTO --- */
 .contact-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
     gap: 2rem;
     align-items: start;
 }
 
 @media (max-width: 1024px) {
     .contact-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
     }
 }
 
@@ -436,20 +446,20 @@ footer {
     color: var(--primary-color);
 }
 
-/* --- BINARY HERO BACKGROUND --- */
+/* --- FONDO BINARIO ANIMADO PARA EL HERO --- */
 .hero .binary-code {
     position: absolute;
-    top: -50%; /* Start higher to scroll down */
+    top: -50%;
     left: 0;
     width: 100%;
-    height: 200%; /* Taller to allow for scrolling */
+    height: 200%;
     color: var(--primary-color);
+    opacity: 0.4; /* Baja opacidad para que no distraiga */
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     line-height: 1.2;
     word-break: break-all;
-    opacity: 0.15;
-    animation: scroll-binary 15s linear infinite;
+    animation: scroll-binary 15s linear infinite; /* Animación de desplazamiento */
     z-index: 1;
 }
 
@@ -462,35 +472,7 @@ footer {
     }
 }
 
-/* --- MAP OVERLAY --- */
-.map-wrapper {
-    position: relative;
-    display: inline-block; /* Or block, depending on layout */
-}
-
-.map-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.8);
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    pointer-events: none; /* Allows clicking on the map if needed, though it's for display */
-    border-radius: 8px; /* Match the iframe's border-radius */
-}
-
-.map-overlay p {
-    text-shadow: 0 0 10px var(--primary-color);
-}
-
-/* --- GALERIA --- */
+/* --- GALERÍA DE IMÁGENES --- */
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -511,9 +493,9 @@ footer {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
-/* --- LIGHTBOX --- */
+/* --- LIGHTBOX (VISOR DE IMÁGENES) --- */
 .lightbox {
-    display: none;
+    display: none; /* Oculto por defecto */
     position: fixed;
     z-index: 1001;
     padding-top: 100px;
@@ -560,7 +542,7 @@ footer {
     cursor: pointer;
 }
 
-/* --- LIGHTBOX NAVIGATION --- */
+/* --- NAVEGACIÓN DEL LIGHTBOX (ANTERIOR/SIGUIENTE) --- */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -586,7 +568,7 @@ footer {
   background-color: rgba(255, 0, 0, 0.8);
 }
 
-/* --- IMAGE GLITCH EFFECT --- */
+/* --- EFECTO GLITCH PARA IMÁGENES --- */
 .glitch-image-wrapper {
     position: relative;
 }
@@ -596,7 +578,7 @@ footer {
 }
 
 .glitch-image-wrapper.glitch-active > img {
-    opacity: 0;
+    opacity: 0; /* Oculta la imagen original al activar el glitch */
 }
 
 .glitch-image-wrapper::after {
@@ -641,7 +623,7 @@ footer {
   }
 }
 
-/* --- EPISODE LISTS (Temporadas Page) --- */
+/* --- LISTA DE EPISODIOS (PÁGINA DE TEMPORADAS) --- */
 .episode-toggle {
     cursor: pointer;
     background-color: #1a1a1a;
@@ -682,6 +664,20 @@ footer {
 }
 
 .episode-list.show {
-    max-height: 500px;
+    max-height: 1500px; /* Ajustado para permitir más contenido */
     opacity: 1;
+}
+
+.episode-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #222;
+}
+
+.episode-item:last-child {
+    border-bottom: none;
+}
+
+.episode-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
 }

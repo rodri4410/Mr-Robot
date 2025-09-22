@@ -50,6 +50,19 @@ body {
     gap: 2rem; /* Espacio entre los enlaces */
 }
 
+.nav-temps{
+    position: relative;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding-bottom: 5px; /* Espacio para la línea animada inferior */
+}
+.nav-temps:hover {
+    color: var(--text-color); /* Cambia el color del texto al pasar el mouse */
+}
+
 .nav-links li a {
     position: relative;
     color: var(--text-color);
@@ -700,6 +713,11 @@ footer {
     padding: 1rem 0;
     border-bottom: 1px solid #222;
 }
+.episode-image{
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
 
 .episode-item:last-child {
     border-bottom: none;
@@ -743,4 +761,28 @@ footer {
 .map-overlay p {
     font-size: 1.5rem;
     color: white;
+}
+
+.episode-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .episode-image {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .episode-img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .episode-img {
+        max-width: 100%;
+    }
 }
